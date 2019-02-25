@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet" type="text/css"/>
+    <link href="./styles.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Foto Finder</title>
+  </head>
+  <body>
+    <header class="header-bar">
+      <h1 class="animated bounceInDown">FOTO<img src="images/foto-finder-logo.svg">FINDER</h1>
+      <div aria-label="Search ideas" class="search-box">
+        <input type="search " class="search-input" placeholder="Search" aria-hidden="false">
+        <button type="button" aria-label="Search button" class="search-btn"><i class="fas fa-search fa-lg"></i><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+      </div>
+    </header>
+    <main>
+      <section class="form-section">
+        <div class="pb-animation"><img src="images/mrpb.png"></div>
+        <form class="add-photo-form" aria-label="Add new photo form">
+          <label for="j-new-title">Title</label>
+          <input type="text" id="j-new-title" class="photo-title-input" aria-label="New photo title input" aria-required="true">
+          <p class="char-txt" aria-live="polite"><span class="char-count">0</span> out of <span class="char-limit">30</span> characters</p>
+          <label for="j-new-caption">Caption</label>
+          <input type="text" class="photo-caption-input" id="j-new-caption" aria-label="New photo caption input" aria-required="true"></input> 
+          <p class="char-txt" aria-live="polite"><span class="char-count">0</span> out of <span class="char-limit">90</span> characters</p>
+          <input type="file" name="file" id="new-file" class="new-file-input" accept="image/*" aria-label="Choose photo to upload"><label class="new-file-label" for="new-file">Choose File</label>
+          <div class="photo-options" aria-label="Photo options">
+            <button type="button" class="photo-option-btn view-favs-btn">View <span class="fav-count"> </span> Favorites</button>
+            <button type="button" class="photo-option-btn add-btn animated" disabled>Add to Album</button>
+          </div>
+        </form>
+      </section>
+      <section class="photo-section" aria-role="list" aria-label="List of photos in album" aria-live="polite">
+      </section>
+      <section class="show-hide">
+        <button type="button" class="show-btn hidden animated swing" aria-label="Show all photos" aria-expanded="false" aria-controls="photo-section">Show More...
+        </button>
+      </section>
+      <script src="photo.js"></script>
+      <script src="main.js"></script>
+    </main>
+  </body>
