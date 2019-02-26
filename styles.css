@@ -1,38 +1,33 @@
-/*Overall Styles*/
+/*General Styles*/
 
 * {
   box-sizing: border-box;
   outline-color: #3e2a34;
 }
 
-*:focus,
-*:active {
-  outline-color: #3e2a34!important;
-}
-
-
 body {
-  margin: 0;
   color: #c2b2b4;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
+  margin: 0;
 }
 
 input, button {
-  padding: 5px 10px;
   height: 50px;
+  padding: 5px 10px;
 }
 
 button {
   border: none;
 }
 
+
 /*Header*/
 
 header {
-  background: #3e2a34;
   align-items: center;
+  background: #3e2a34;
   display: flex;
   height: 90px;
   padding: 40px;
@@ -46,8 +41,8 @@ h1 {
 }
 
 h1 img {
-  width: 68px;
   padding: 0px 8px;
+  width: 68px;
 }
 
 .search-box {
@@ -58,16 +53,16 @@ h1 img {
 }
 
 .search-input {
-  height: 40px;
-  border: 2px solid #c2b2b4;
   border-radius: 5px 0px 0px 5px;
   border-right: none;
+  border: 2px solid #c2b2b4;
+  height: 40px;
   width: 275px;
 }
 
 .search-input::placeholder {
-  font-size: 1.1rem;
   color: #c2b2b4;
+  font-size: 1.1rem;
 }
 
 .search-btn {
@@ -82,10 +77,6 @@ i.fa-lg {
   font-size: 1.2em;
 }
 
-i.fa-minus-circle {
-  display: none;
-}
-
 
 /*Form*/
 
@@ -95,20 +86,20 @@ main {
 
 .form-section {
   margin: auto;
-  padding-top: 40px;
   min-width: 700px;
+  padding-top: 40px;
   width: 50%;
 }
 
 .add-photo-form input, 
 .add-photo-form button {
-  height: 50px;
   border: none;
+  height: 50px;
 }
 
 input {
-  font-size: 18px;
   color: #7c7879
+  font-size: 18px;
 }
 
 button {
@@ -142,7 +133,7 @@ label {
 }
 
 .error {
-  color: red;
+  color: #b72a14;
 }
 
 .photo-options {
@@ -159,30 +150,23 @@ label {
   outline: 0;
 }
 
-label:focus,
-label:active,
-input:focus,
-input:active {
-  outline-color: #c2b2b4;;
-}
-
 .new-file-input {
-  width: 0.1px;
   height: 0.1px;
   opacity: 0;
   overflow: hidden;
   position: absolute;
+  width: 0.1px;
   z-index: -1;
 }
 
 .new-file-input + label.new-file-label {
   background: #5b4447;
   color: #fff;
-  height: 50px;
-  display: flex;
   cursor: pointer;
-  text-align: center;
+  display: flex;
+  height: 50px;
   margin-bottom: 35px;
+  text-align: center;
 }
 
 label.new-file-label {
@@ -196,8 +180,8 @@ label.new-file-label {
 }
 
 .new-file-input:focus + label.new-file-label {
-  outline: 1px dotted #000;
-  outline: -webkit-focus-ring-color auto 5px;
+  outline: 1px dotted #3e2a34;
+  outline: -webkit-focus-ring-color #3e2a34 5px;
 }
 
 .add-btn:disabled {
@@ -206,15 +190,23 @@ label.new-file-label {
 }
 
 
-/*Generated card styling*/
+/*Photo card area*/
 
 .photo-section {
-  padding: 25px 40px;
-  min-height: 100px;
   background: #c2b2b4;
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   grid-template-rows: auto;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 15px 20px;
+}
+
+.welcome {
+  color: #3e2a34;
+  font-size: 1.8rem;
+  grid-column-end: 5;  
+  grid-column-start: 1;
+  grid-template-rows: 1fr;
+  margin: 20px auto;
 }
 
 .photo-card {
@@ -222,7 +214,7 @@ label.new-file-label {
   flex-direction: column;
   margin: auto;
   padding: 20px;
-  max-width: 350px;
+  width: 340px;
 }
 
 .card-main {
@@ -231,38 +223,22 @@ label.new-file-label {
   border-bottom: none;
   display: flex;
   flex-direction: column;
-  min-height: 345px;
+  height: 345px;
 }
 
 .card-txt {
-  min-height: 2.75rem;
   color: #3e2a34;
   font-size: 1.1rem;
   font-weight: 400;
-  margin: 0;
-  padding: .5rem .8rem .6rem .8rem;
   line-height: 1.5;
+  margin: 0;
+  min-height: 2.75rem;
   overflow: hidden;
+  padding: .5rem .8rem .6rem .8rem;
 }
 
 .card-txt:focus {
   outline: none;
-  overflow: scroll;
-  text-overflow: clip!important;
-  white-space: normal!important;
-}
-
-.card-title {
-  max-height: 2.75rem;
-  overflow: hidden;
-  display: -webkit-box; /*Safari*/
-  -webkit-box-orient: vertical;
-}
-
-.title-txt {
-  white-space: nowrap;
-  overflow: hidden;
-  max-height: 2.5rem;
 }
 
 .card-photo {
@@ -276,29 +252,23 @@ label.new-file-label {
 .card-photo img {
   cursor: pointer;
   display: inline-block;
+  height: 100%;
   width: 100%;
-  height: 100%
-}
-
-.card-caption {
-  background: #fff;
-  display: flex;
-  justify-content: flex-start;
 }
 
 .card-footer {
+  align-items: center;
   background: #5b4447;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 12px 15px;
 }
 
 .btn-image {
+  background-repeat: no-repeat;
   cursor: pointer;
   height: 2rem;
   width: 2rem;
-  background-repeat: no-repeat;
 }
 
 .delete-btn {
@@ -321,27 +291,30 @@ label.new-file-label {
   background-image: url('images/favorite-active.svg')
 }
 
-button.hidden {
-  display: none;
-}
-
 .show-hide {
-  width: 100%;
+  background: #c2b2b4;
   margin: auto;
   padding: 25px;
-  background: #c2b2b4;
+  width: 100%;
 }
 
 .show-btn {
   display: block;
   margin: auto;
+  outline-color: #c2b2b4;
   width: 30%;
 }
 
-/*Animation*/ 
+button.hidden {
+  display: none;
+}
+
+
+/*Animations*/ 
+
 .flashit {
   -webkit-animation: flash linear 1s;
-  animation: flash linear 4s;
+  animation: flash linear 1s;
 }
 
 @-webkit-keyframes flash {
@@ -355,11 +328,11 @@ button.hidden {
 }
 
 .fade-in {
-  opacity: 1;
-  animation-name: fadeInOpacity;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
   animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: fadeInOpacity;
+  animation-timing-function: ease-in;
+  opacity: 1;
 }
 
 @keyframes fadeInOpacity {
@@ -395,23 +368,6 @@ button.hidden {
 
 /*Media Queries*/
 
-@media only screen (max-width:1270px) {
-
-  .form-section {
-    width: 60%;
-    min-width: 650px;
-  }
-
-  button {
-    font-size: .8em;
-    padding: 5px;
-  }
-
-  .photo-section {
-    padding: 25px 20px;
-  }
-}
-
 @media only screen and (max-width:980px) {
   .form-section {
     min-width: 500px;
@@ -430,9 +386,9 @@ button.hidden {
   }
 
   .search-box {
+    flex: initial;
     min-width: 380px;
     width: 40%;
-    flex: initial;
   }
 
   .search-box input {
@@ -446,24 +402,42 @@ button.hidden {
 }
 
 @media only screen and (max-width:680px) {
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
 
-  .photo-section {
-    padding: 15px 20px;
+  .search-box {
+    min-width: 320px;
+    width: 30%;
+  }
+
+  .photo-section,
+  .show-hide {
+    padding: 10px 0px;
+  }
+
+  .photo-card {
+    max-width: 90%;
+    padding: 10px;
   }
 }
 
 @media only screen and (max-width:500px) {
 
+  body {
+    font-size: 1rem;
+  }
+
   .form-section,
   .search-box {
-    width: 90%;
     min-width: 0px;
+    width: 90%;
   }
 
   h1 {
-    font-size: 1.6em;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    font-size: 1.9em;
   }
 
   .photo-option-btn {
@@ -471,18 +445,10 @@ button.hidden {
   }
 
   .photo-section {
-    padding: 10px 0px;
+    grid-template-columns: 1fr;
   }
 
   .show-btn {
-    width: 100%;
+    width: 90%;
   }
-
-  button, 
-  label.new-file-label {
-    font-size: .9em;
-    padding: 5px;
-  }
-
 }
-

@@ -14,7 +14,7 @@
       <h1 class="animated bounceInDown">FOTO<img src="images/foto-finder-logo.svg">FINDER</h1>
       <div aria-label="Search ideas" class="search-box">
         <input type="search " class="search-input" placeholder="Search" aria-hidden="false">
-        <button type="button" aria-label="Search button" class="search-btn"><i class="fas fa-search fa-lg"></i><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+        <button type="button" aria-label="Search button" class="search-btn"><i class="fas fa-search fa-lg"></i></button>
       </div>
     </header>
     <main>
@@ -29,7 +29,7 @@
           <p class="char-txt" aria-live="polite"><span class="char-count">0</span> out of <span class="char-limit">90</span> characters</p>
           <input type="file" name="file" id="new-file" class="new-file-input" accept="image/*" aria-label="Choose photo to upload"><label class="new-file-label" for="new-file">Choose File</label>
           <div class="photo-options" aria-label="Photo options">
-            <button type="button" class="photo-option-btn view-favs-btn">View <span class="fav-count"> </span> Favorites</button>
+            <button type="button" class="photo-option-btn view-favs-btn">View <span class="fav-count">0</span> Favorites</button>
             <button type="button" class="photo-option-btn add-btn animated" disabled>Add to Album</button>
           </div>
         </form>
@@ -37,10 +37,11 @@
       <section class="photo-section" aria-role="list" aria-label="List of photos in album" aria-live="polite">
       </section>
       <section class="show-hide">
-        <button type="button" class="show-btn hidden animated swing" aria-label="Show all photos" aria-expanded="false" aria-controls="photo-section">Show More...
+        <button type="button" class="show-btn hidden" aria-label="Show all photos" aria-expanded="false" aria-controls="photo-section">Show More...
         </button>
       </section>
       <script src="photo.js"></script>
       <script src="main.js"></script>
     </main>
   </body>
+</html>
