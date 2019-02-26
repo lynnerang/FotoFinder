@@ -21,16 +21,9 @@ class Photo {
 
   deleteFromStorage(target) {
     var index = photos.indexOf(this);
-    photos.splice(index, 1);
+    photos.splice(index, 1); 
     target.closest('.photo-card').remove();
+    updateShowBtn();
     this.saveToStorage();
   }
 }
-
-
-
-
-
-
-
-
