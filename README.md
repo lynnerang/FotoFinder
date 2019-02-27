@@ -58,7 +58,7 @@ The full assignment details are located on the [Turing website](http://frontend.
 
 ## Screenshots
 
-<img src="https://github.com/lynnerang/fotofinder/blob/master/screenshots/Desktop1.png" alt="Top of website on desktop">
+<img src="screenshots/Desktop1.png" alt="Top of website on desktop">
 <img src="https://github.com/lynnerang/fotofinder/blob/master/screenshots/Desktop2.png" alt="Bottom of website on desktop">
 <img src="https://github.com/lynnerang/fotofinder/blob/master/screenshots/Mobile1.png" alt="Top of website on mobile">
 <img src="https://github.com/lynnerang/fotofinder/blob/master/screenshots/Mobile2.png" alt="Bottom of website on mobile">
