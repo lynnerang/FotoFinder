@@ -195,7 +195,7 @@ label.new-file-label {
 .photo-section {
   background: #c2b2b4;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-template-rows: auto;
   padding: 15px 20px;
 }
@@ -445,9 +445,9 @@ button.hidden {
     width: 45%;
   }
 
-  .photo-section {
+/*  .photo-section {
     grid-template-columns: 1fr;
-  }
+  }*/
 
   .show-btn {
     width: 90%;
