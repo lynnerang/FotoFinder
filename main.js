@@ -197,7 +197,9 @@ const updateShowBtn = () => {
 }
 
 const updateFavBtnCount = () => {
-  document.querySelector('.fav-count').innerText = photos.filter(photo => photo.favorite).length;
+  if (viewFavsBtn.innerText !== "View All Photos") {
+    document.querySelector('.fav-count').innerText = photos.filter(photo => photo.favorite).length;
+  }
 }
 
 const updateAddBtn = () => {
