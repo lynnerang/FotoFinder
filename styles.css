@@ -5,7 +5,7 @@
   outline-color: #3e2a34;
 }
 
-body {
+.page {
   color: #c2b2b4;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1rem;
@@ -25,7 +25,7 @@ button {
 
 /*Header*/
 
-header {
+.page__header {
   align-items: center;
   background: #3e2a34;
   display: flex;
@@ -80,7 +80,7 @@ i.fa-lg {
 
 /*Form*/
 
-main {
+.page__content {
   background: #3e2a34;
 }
 
@@ -305,6 +305,7 @@ label.new-file-label {
   width: 30%;
 }
 
+.hidden,
 button.hidden {
   display: none;
 }
