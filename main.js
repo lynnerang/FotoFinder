@@ -10,9 +10,6 @@ const viewFavsBtn = document.querySelector('.view-favs-btn');
 const showBtn = document.querySelector('.show-btn');
 const photoSection = document.querySelector('.photo-section');
 
-
-
-
 const onAddImg = () => {
   const reader = new FileReader();
   if (newFile.files[0] && validType(newFile.files[0])) {
@@ -220,6 +217,7 @@ const showErrs = (input, limit) => {
 const resetForm = () => {
   newTitle.value = "";
   newCaption.value = "";
+  newFile.value = "";
   searchInput.value = "";
   addBtn.disabled = true;
   const counts = Array.from(document.querySelectorAll('.char-count'));
