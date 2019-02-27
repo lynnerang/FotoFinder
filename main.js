@@ -23,8 +23,10 @@ const onChangeFile = e => {
     const card = e.target.closest('.photo-card');
     const reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
-    reader.onload = function() {card.querySelector('.photo-img').src = reader.result;}
-    findObjByDom(card).updatePhoto(card);
+    reader.onload = function() {
+      card.querySelector('.photo-img').src = reader.result; 
+      findObjByDom(card).updatePhoto(card);
+    }
   }
 }
 
@@ -131,16 +133,16 @@ const displayCard = photo => {
   const inputId = Date.now();
   const html = `<article class="photo-card fade-in" data-fav="${photo.favorite}" data-id="${photo.id}">
           <div class="card-main">
-            <div class="card-title"><h2 class="card-txt title-txt" id="photo-title" contenteditable="true" aria-live="polite" aria-label="Add text or type / to add or edit photo title" role="textbox">${photo.title}</h2></div>
+            <h2 class="card-txt title-txt" id="photo-title" contenteditable="true" aria-live="polite" aria-label="Add text or type / to add or edit photo title" role="textbox">${photo.title}</h2>
             <div class="card-photo">
               <label class="change-file-label" for="change-file${inputId}"><img class="photo-img" src="${photo.file}"/></label>
               <input type="file" id="change-file${inputId}" class="change-file-input" accept="image/*">
             </div>
-            <div class="card-caption"><p class="card-txt caption-txt" id="photo-caption" contenteditable="true" aria-live="polite" aria-label="Add text or type / to add or edit photo caption">${photo.caption}</p></div>
+            <p class="card-txt caption-txt" id="photo-caption" contenteditable="true" aria-live="polite" aria-label="Add text or type / to add or edit photo caption">${photo.caption}</p>
             </div>
             <div class="card-footer">
               <div class="btn-image delete-btn" aria-role="button" aria-label="Delete this photo" aria-controls="${photo.id}"></div>
-              <div class="animated flashit btn-image favorite-btn" aria-role="button" aria-label="Add photo to favorites" aria-controls="${photo.id}">
+              <div class="animated flashit btn-image favorite-btn" aria-role="button" aria-label="Add photo to favorites" aria-controls="${photo.id}"></div>
             </div>
           </div>
         </article>`;
