@@ -5,7 +5,7 @@
   outline-color: #3e2a34;
 }
 
-.page {
+body {
   color: #c2b2b4;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1rem;
@@ -25,7 +25,7 @@ button {
 
 /*Header*/
 
-.page__header {
+header {
   align-items: center;
   background: #3e2a34;
   display: flex;
