@@ -107,7 +107,7 @@ const appendAllPhotos = strArray => {
     clearPhotosAndSearch();
     photos = strArray.map(photo => new Photo(photo.id, photo.title, photo.caption, photo.file, photo.favorite));
     photos.forEach(photo => displayCard(photo));
-    viewFavsBtn.innerHTML = `View ${photos.filter(photo => photo.favorite).length} Favorites`;
+    updateFavBtnCount();
     hideCards();
   }
 }
@@ -198,7 +198,7 @@ const updateShowBtn = () => {
 
 const updateFavBtnCount = () => {
   if (viewFavsBtn.innerText !== "View All Photos") {
-    document.querySelector('.fav-count').innerText = photos.filter(photo => photo.favorite).length;
+    viewFavsBtn.innerHTML = `View ${photos.filter(photo => photo.favorite).length} Favorites`;
   }
 }
 
