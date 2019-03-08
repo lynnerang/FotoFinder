@@ -54,7 +54,7 @@ The full assignment details are located on the [Turing website](http://frontend.
   - Click the favorite button to favorite any photos. 
   - Use Search to find photos by title or caption keywords, even when viewing favorites
   - Additionally you can update the title and captions of existing cards. 
-  - When you fill up the page with new ideas you can press the 'Show more...' button to expand the list of cards beyond 10, and then "Shwe Less" to go back to the most recent ten.
+  - When you fill up the page with new ideas you can press the 'Show more...' button to expand the list of cards beyond 10, and then "Show Less" to go back to the most recent ten.
 
 ## Screenshots
 
