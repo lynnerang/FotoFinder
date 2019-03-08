@@ -98,7 +98,7 @@ i.fa-lg {
 }
 
 input {
-  color: #7c7879
+  color: #7c7879;
   font-size: 18px;
 }
 
@@ -146,7 +146,7 @@ label {
 }
 
 .photo-title-input:focus,
-.photo-caption-input:focus,{
+.photo-caption-input:focus {
   outline: 0;
 }
 
@@ -444,10 +444,6 @@ button.hidden {
   .photo-option-btn {
     width: 45%;
   }
-
-/*  .photo-section {
-    grid-template-columns: 1fr;
-  }*/
 
   .show-btn {
     width: 90%;
