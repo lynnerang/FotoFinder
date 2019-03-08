@@ -56,7 +56,7 @@ const onViewFavs = () => {
     photos.filter(photo => photo.favorite).forEach(photo => displayCard(photo));
     hideCards();
   } else {
-    appendAllPhotos(photos);
+    appendAllPhotos();
   }
 }
 
@@ -97,17 +97,17 @@ const addPhoto = e => {
   photos.unshift(newPhoto);
   newPhoto.saveToStorage();
   checkForMrPB(newTitle.value, newCaption.value);
-  appendAllPhotos(photos);
+  appendAllPhotos();
   resetForm();
   btnAni();
 }
 
-const appendAllPhotos = strArray => {
+const appendAllPhotos = () => {
   if (photos.length === 0) {
     photoSection.innerHTML = `<p class="welcome"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Start adding photos using the form above!</p>`;
   } else {
     clearPhotosAndSearch();
-    photos = strArray.map(photo => new Photo(photo.id, photo.title, photo.caption, photo.file, photo.favorite));
+    photos = photos.map(photo => new Photo(photo.id, photo.title, photo.caption, photo.file, photo.favorite));
     photos.forEach(photo => displayCard(photo));
     viewFavsBtn.innerHTML = `View ${photos.filter(photo => photo.favorite).length} Favorites`;
     hideCards();
@@ -253,4 +253,4 @@ photoSection.addEventListener('focusout', onFocusout);
 photoSection.addEventListener('change', onChangeFile);
 
 
-appendAllPhotos(photos);
+appendAllPhotos();
