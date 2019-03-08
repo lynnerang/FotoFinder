@@ -30,19 +30,19 @@ const onChangeFile = e => {
   }
 }
 
-const onFormKeyup = () => {
-  const totalChars = event.target.value.length;
-  const charLimit = parseInt(event.target.nextElementSibling.querySelector('.char-limit').innerText);
-  const charCounter = event.target.nextElementSibling.querySelector('.char-count');
-  charCounter.innerText = totalChars;
-  showErrs(event.target, charLimit);
+const onFormKeyup = e => {
+  let charLimit;
+  e.target.id === 'j-new-title' ? charLimit = 30 : charLimit = 90;
+  const charCounter = e.target.nextElementSibling.querySelector('.char-count');
+  charCounter.innerText = e.target.value.length;
+  showErrs(e.target, charLimit);
   updateAddBtn();
 }
 
 const onSearchKeyup = () => {
-  photoSection.innerHTML = "";
+  photoSection.innerHTML = '';
   let searchResults = photos.filter(photo => hasSearchTerms(photo));
-  if (viewFavsBtn.innerText === "View All Photos") {
+  if (viewFavsBtn.innerText === 'View All Photos') {
     searchResults = photos.filter(photo => photo.favorite && hasSearchTerms(photo));
   }
   searchResults.forEach(photo => displayCard(photo));
@@ -51,8 +51,8 @@ const onSearchKeyup = () => {
 
 const onViewFavs = () => {
   clearPhotosAndSearch();
-  if (viewFavsBtn.innerText !== "View All Photos") {
-    viewFavsBtn.innerText = "View All Photos";
+  if (viewFavsBtn.innerText !== 'View All Photos') {
+    viewFavsBtn.innerText = 'View All Photos';
     photos.filter(photo => photo.favorite).forEach(photo => displayCard(photo));
     hideCards();
   } else {
@@ -69,8 +69,9 @@ const onAreaClick = e => {
 
 const onKeypress = e => {
   const key = e.which || e.keyCode;
-  if (!validLength(e.target.closest('.photo-card').querySelector('.title-txt').textContent, 30) || !validLength(e.target.closest('.photo-card').querySelector('.caption-txt').textContent, 90)) {
-    e.preventDefault();
+  if (!validLength(e.target.closest('.photo-card').querySelector('.title-txt').textContent, 30) || 
+    !validLength(e.target.closest('.photo-card').querySelector('.caption-txt').textContent, 90)) {
+      e.preventDefault();
   } else if (key === 13 && e.target.classList.contains('card-txt')) {
     e.preventDefault();
     const card = e.target.closest('.photo-card');
@@ -86,7 +87,7 @@ const onFocusout = e => {
 }
 
 const onShow = () => {
-  showBtn.innerText === "Show More..." ? showCards()
+  showBtn.innerText === 'Show More...' ? showCards()
   : hideCards();
 }
 
@@ -108,7 +109,7 @@ const appendAllPhotos = () => {
     clearPhotosAndSearch();
     photos = photos.map(photo => new Photo(photo.id, photo.title, photo.caption, photo.file, photo.favorite));
     photos.forEach(photo => displayCard(photo));
-    viewFavsBtn.innerHTML = `View ${photos.filter(photo => photo.favorite).length} Favorites`;
+    viewFavsBtn.innerHTML = `View <span class="fav-count">${photos.filter(photo => photo.favorite).length}</span> Favorites`;
     hideCards();
   }
 }
@@ -123,7 +124,7 @@ const findAction = (photoObj, target) => {
 
 const toggleFavorite = (obj, target) => {
   !obj.favorite ? target.classList.add('favorite-btn-active')
-  : target.classList.remove('favorite-btn-active');
+    : target.classList.remove('favorite-btn-active');
   obj.updatePhoto(target.closest('.photo-card'));
   updateFavBtnCount();
 }
@@ -145,7 +146,7 @@ const displayCard = photo => {
             </div>
           </div>
         </article>`;
-  photoSection.innerHTML += html;
+  photoSection.insertAdjacentHTML('beforeend', html);
   showFavStatus(photo);
 }
 
@@ -171,8 +172,8 @@ const showFavStatus = obj => {
 }
 
 const clearPhotosAndSearch = () => {
-  photoSection.innerHTML = "";
-  searchInput.value = "";
+  photoSection.innerHTML = '';
+  searchInput.value = '';
 }
 
 const getDisplayedCards = () => Array.from(document.querySelectorAll('.photo-card'));
@@ -180,25 +181,25 @@ const getDisplayedCards = () => Array.from(document.querySelectorAll('.photo-car
 const hideCards = () => {
   displayedCards = getDisplayedCards();
   const listOfTen = displayedCards.slice(0, 10);
-  photoSection.innerHTML = "";
+  photoSection.innerHTML = '';
   listOfTen.forEach(card => photoSection.appendChild(card));
-  showBtn.innerText = "Show More...";
+  showBtn.innerText = 'Show More...';
   updateShowBtn();
 }
 
 const showCards = () => {
-  photoSection.innerHTML = "";
+  photoSection.innerHTML = '';
   displayedCards.forEach(card => photoSection.appendChild(card));
-  showBtn.innerText = "Show Less...";
+  showBtn.innerText = 'Show Less...';
 }
 
 const updateShowBtn = () => {
   getDisplayedCards().length < 10 ? showBtn.classList.add('hidden')
-  : showBtn.classList.remove('hidden');
+    : showBtn.classList.remove('hidden');
 }
 
 const updateFavBtnCount = () => {
-  if (viewFavsBtn.innerText !== "View All Photos") {
+  if (viewFavsBtn.innerText !== 'View All Photos') {
     document.querySelector('.fav-count').innerText = photos.filter(photo => photo.favorite).length;
   }
 }
@@ -207,29 +208,29 @@ const updateAddBtn = () => {
   document.querySelector('.new-file-input').files[0] && 
   validLength(newTitle.value, 30) && 
   validLength(newCaption.value, 90) ? addBtn.disabled = false
-  : addBtn.disabled = true;
+    : addBtn.disabled = true;
 }
 
 const showErrs = (input, limit) => {
   input.value.length > 0 && input.value.length <= limit ? 
   input.nextElementSibling.classList.remove('error')
-  : input.nextElementSibling.classList.add('error');
+    : input.nextElementSibling.classList.add('error');
 }
 
 
 const resetForm = () => {
-  newTitle.value = "";
-  newCaption.value = "";
-  newFile.value = "";
-  searchInput.value = "";
+  newTitle.value = '';
+  newCaption.value = '';
+  newFile.value = '';
+  searchInput.value = '';
   addBtn.disabled = true;
   const counts = Array.from(document.querySelectorAll('.char-count'));
-  counts.forEach(count => count.innerText = "0");
+  counts.forEach(count => count.innerText = '0');
 }
 
 const checkForMrPB = (title, body) => {
-  if (title.toLowerCase().includes("poopy", "butthole") || 
-    body.toLowerCase().includes("poopy", "butthole")) {
+  if (title.toLowerCase().includes('poopy', 'butthole') || 
+    body.toLowerCase().includes('poopy', 'butthole')) {
     document.querySelector('.pb-animation').classList.add('mr-pb');
   }
 }
