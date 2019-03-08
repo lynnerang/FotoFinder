@@ -86,7 +86,6 @@ const onFocusout = e => {
 }
 
 const onShow = () => {
-  btnAni();
   showBtn.innerText === "Show More..." ? showCards()
   : hideCards();
 }
